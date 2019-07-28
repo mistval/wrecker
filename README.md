@@ -1,5 +1,7 @@
 # wrecker
 
+[![Build Status](https://travis-ci.com/mistval/wrecker.svg?branch=master)](https://travis-ci.com/mistval/wrecker) [![codecov](https://codecov.io/gh/mistval/wrecker/branch/master/graph/badge.svg)](https://codecov.io/gh/mistval/wrecker)
+
 An easy to use worker thread pool implementation.
 
 ## Usage
