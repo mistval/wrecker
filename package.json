@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "lintfix": "./node_modules/.bin/eslint . --fix",
-    "test": "node --experimental-worker ./node_modules/mocha/bin/_mocha --exit",
+    "test": "./node_modules/.bin/mocha --exit",
+    "testexp": "node --experimental-worker ./node_modules/mocha/bin/_mocha --exit",
     "coverage": "./node_modules/.bin/nyc npm run test"
   },
   "repository": {
