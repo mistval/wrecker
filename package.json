@@ -10,7 +10,7 @@
     "testexp": "node --experimental-worker ./node_modules/mocha/bin/_mocha --exit",
     "coverage": "./node_modules/.bin/nyc npm run test",
     "coverageexp": "./node_modules/.bin/nyc npm run testexp",
-    "testtravis": "npm run coverage && ./node_modules/.bin/codecov"
+    "testtravis": "npm run coverage && ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
