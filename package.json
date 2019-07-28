@@ -1,0 +1,34 @@
+{
+  "name": "wrecker",
+  "version": "1.0.0",
+  "description": "An easy to use worker thread pool imp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-worker ./node_modules/mocha/bin/_mocha --exit",
+    "coverage": "./node_modules/.bin/nyc npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistval/wrecker.git"
+  },
+  "keywords": [
+    "worker",
+    "thread",
+    "pool",
+    "threading",
+    "threads"
+  ],
+  "author": "mistval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mistval/wrecker/issues"
+  },
+  "homepage": "https://github.com/mistval/wrecker#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1"
+  },
+  "dependencies": {}
+}
