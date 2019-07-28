@@ -1,0 +1,6 @@
+.nyc_output
+example
+test
+.eslintignore
+.eslintrc.js
+.gitignore
