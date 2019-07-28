@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.com/mistval/wrecker.svg?branch=master)](https://travis-ci.com/mistval/wrecker) [![codecov](https://codecov.io/gh/mistval/wrecker/branch/master/graph/badge.svg)](https://codecov.io/gh/mistval/wrecker)
 
-An easy to use worker thread pool implementation.
+Worker threads without the work!
 
 ## Usage
 
-First define a module that contains the jobs you want to run in worker threads. Export an object whose keys are job names and whose values are functions that take zero or one arguments (the job argument). The functions can be async. For example:
+First define a module that contains the jobs you want to run in worker threads. Export an object whose keys are job names and whose values are functions that take zero or one arguments. The functions can be async. For example:
 
 jobs.js
 ```js
