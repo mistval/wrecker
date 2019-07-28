@@ -4,6 +4,8 @@
   "description": "An easy to use worker thread pool imp.",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "lintfix": "./node_modules/.bin/eslint . --fix",
     "test": "node --experimental-worker ./node_modules/mocha/bin/_mocha --exit",
     "coverage": "./node_modules/.bin/nyc npm run test"
   },
@@ -27,6 +29,9 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
     "nyc": "^14.1.1"
   },

@@ -1,5 +1,10 @@
 const os = require('os');
-const { Worker, isMainThread, parentPort, workerData } = require('worker_threads');
+const {
+  Worker,
+  isMainThread,
+  parentPort,
+  workerData,
+} = require('worker_threads');
 
 const ERROR_CODE = 1;
 const SUCCESS_CODE = 0;
@@ -23,7 +28,7 @@ class WorkerPool {
    *   Consider using console.warn. If omitted, debug messages will not be logged.
    *   By default, uses the number of CPU cores.
    */
-  constructor(workerJobsPath, options={}) {
+  constructor(workerJobsPath, options = {}) {
     this.workerJobsPath = workerJobsPath;
     this.numWorkers = options.numWorkers || os.cpus().length;
     this.debugLog = options.debugLog || (() => {});
@@ -77,7 +82,7 @@ class WorkerPool {
         return nextJob.reject(new Error(message.error));
       }
 
-      nextJob.fulfill(message.result);
+      return nextJob.fulfill(message.result);
     });
 
     worker.once('exit', (code) => {
@@ -93,7 +98,6 @@ class WorkerPool {
   }
 
   /**
-   * 
    * @param {String} jobName The name of the job for the worker thread to perform.
    * @param {*} jobArgument The argument to the job. Should be JSON serializable or
    *   it may fail to be communicated to the worker thread.
@@ -103,7 +107,13 @@ class WorkerPool {
       throw new Error('The thread pool is shut down.');
     }
     return new Promise((fulfill, reject) => {
-      this.dispatchQueue.push({ jobName, jobArgument, fulfill, reject });
+      this.dispatchQueue.push({
+        jobName,
+        jobArgument,
+        fulfill,
+        reject,
+      });
+
       this.dispatchNext();
     });
   }
@@ -143,10 +153,10 @@ if (!isMainThread) {
     try {
       // Covered by most 'Successful jobs'
       const jobResult = await jobs[jobName](jobArgument);
-      parentPort.postMessage({ code: SUCCESS_CODE, result: jobResult});
+      return parentPort.postMessage({ code: SUCCESS_CODE, result: jobResult });
     } catch (err) {
       // Covered by most 'Error conditions'
-      parentPort.postMessage({ code: ERROR_CODE, error: err.message });
+      return parentPort.postMessage({ code: ERROR_CODE, error: err.message });
     }
   });
 }
