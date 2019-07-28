@@ -1,6 +1,6 @@
 {
   "name": "wrecker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An easy to use worker thread pool.",
   "main": "index.js",
   "scripts": {
