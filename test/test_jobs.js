@@ -1,8 +1,4 @@
-function wait(ms) {
-  return new Promise((fulfill) => {
-    setTimeout(fulfill, ms);
-  });
-}
+const { wait } = require('./test_util.js');
 
 function echo(text) {
   return text;

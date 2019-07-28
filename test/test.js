@@ -2,6 +2,7 @@ const WorkerPool = require('./../index.js');
 const path = require('path');
 const { assert } = require('chai');
 const os = require('os');
+const { wait } = require('./test_util.js');
 
 const TEST_JOB_PATH = path.join(__dirname, 'test_jobs.js');
 const NUM_CPUS = os.cpus().length;
@@ -56,6 +57,16 @@ describe('Successful jobs', function() {
 
     const results = await Promise.all(promises);
     results.forEach((result, i) => assert.equal(result, expectedResults[i]));
+    await pool.shutdown();
+  });
+  it('Can queue work after a delay after finishing work', async function() {
+    const pool = new WorkerPool(TEST_JOB_PATH, { numWorkers: 4 });
+    for (let i = 0; i < 10; ++i) {
+      await pool.doWork('echo', 'test');
+    }
+
+    await wait(300);
+    await pool.doWork('echo', 'test');
     await pool.shutdown();
   });
 });
