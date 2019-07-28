@@ -38,6 +38,17 @@ describe('Successful jobs', function() {
     results.forEach(result => assert.equal(result, 'Hello!'));
     await pool.shutdown();
   });
+  it('Gets correct answer for lots of simultaneous jobs', async function() {
+    const pool = new WorkerPool(TEST_JOB_PATH);
+    const promises = [];
+    for (let i = 0; i < 1000; ++i) {
+      promises.push(pool.doWork('echo', i));
+    }
+
+    const results = await Promise.all(promises);
+    results.forEach((result, i) => assert.equal(result, i));
+    await pool.shutdown();
+  });
   it('Completes a long-running, async job', async function() {
     const pool = new WorkerPool(TEST_JOB_PATH);
     const sum = await pool.doWork('longRunningAddition', { a: 5, b: 9 });
