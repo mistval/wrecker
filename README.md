@@ -68,7 +68,7 @@ const pool = new WorkerPool(JOBS_MODULE_PATH, options);
 
 Do work in a worker thread. The first argument is the string name of the job (which should be defined as a function in your jobs module) and the second is the argument that will be passed to that job. The jobArgument should be JSON serializable. doWork returns a promise that returns the result of the job. See the example under **Usage** above.
 
-The work will be executed on the next available worker thread. If no worker thread if currently available, the job will be queued until a thread is available.
+The work will be executed on the next available worker thread. If no worker thread is currently available, the job will be queued until a thread is available.
 
 ### pool.shutdown()
 
