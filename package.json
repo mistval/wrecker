@@ -1,7 +1,7 @@
 {
   "name": "wrecker",
   "version": "1.0.0",
-  "description": "An easy to use worker thread pool imp.",
+  "description": "An easy to use worker thread pool.",
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
