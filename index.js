@@ -66,6 +66,7 @@ class WorkerPool {
 
     const nextJob = this.dispatchQueue.shift();
     if (!nextJob) {
+      this.idleQueue.push(worker);
       return;
     }
 
