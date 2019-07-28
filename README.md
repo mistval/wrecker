@@ -1,6 +1,6 @@
 # wrecker
 
-[![Build Status](https://travis-ci.com/mistval/wrecker.svg?branch=master)](https://travis-ci.com/mistval/wrecker) [![codecov](https://codecov.io/gh/mistval/wrecker/branch/master/graph/badge.svg)](https://codecov.io/gh/mistval/wrecker)
+[![npm version](https://badge.fury.io/js/wrecker.svg)](https://badge.fury.io/js/wrecker) [![Build Status](https://travis-ci.com/mistval/wrecker.svg?branch=master)](https://travis-ci.com/mistval/wrecker) [![codecov](https://codecov.io/gh/mistval/wrecker/branch/master/graph/badge.svg)](https://codecov.io/gh/mistval/wrecker) [![install size](https://packagephobia.now.sh/badge?p=wrecker)](https://packagephobia.now.sh/result?p=wrecker)
 
 Worker threads without the work!
 
