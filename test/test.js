@@ -8,7 +8,7 @@ const TEST_JOB_PATH = path.join(__dirname, 'test_jobs.js');
 const NUM_CPUS = os.cpus().length;
 
 describe('Initialization', function() {
-  it('Uses the number of CPUs in the system by default', async function() {
+  it(`Uses the number of CPUs (${NUM_CPUS}) in the system by default`, async function() {
     const pool = new WorkerPool(TEST_JOB_PATH);
     assert.equal(pool.numWorkers, NUM_CPUS);
     await pool.shutdown();
