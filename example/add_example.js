@@ -1,7 +1,7 @@
 const path = require('path');
 const WorkerPool = require('../index.js');
 
-const JOBS_MODULE_PATH = path.join(__dirname, 'jobs.js');
+const JOBS_MODULE_PATH = path.join(__dirname, 'add_jobs.js');
 
 const pool = new WorkerPool(JOBS_MODULE_PATH);
 
