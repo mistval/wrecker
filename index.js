@@ -10,7 +10,10 @@ const ERROR_CODE = 1;
 const SUCCESS_CODE = 0;
 
 function removeFromArray(array, obj) {
-  return array.filter(element => element !== obj);
+  const index = array.indexOf(obj);
+  if (index !== -1) {
+    array.splice(index, 1);
+  }
 }
 
 /**
