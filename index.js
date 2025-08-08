@@ -126,7 +126,7 @@ class WorkerPool {
    */
   shutdown() {
     this.shuttingDown = true;
-    return Promise.all(this.allWorkers.map(worker => worker.terminate()));
+    return Promise.all(this.allWorkers.map((worker) => worker.terminate()));
   }
 }
 
